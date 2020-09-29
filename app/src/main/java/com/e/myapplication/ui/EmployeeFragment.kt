@@ -7,12 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.RecyclerView
 import com.e.myapplication.R
 import kotlinx.android.synthetic.main.employee_fragment.*
+import java.lang.StringBuilder
 
 class EmployeeFragment : Fragment() {
 
     private lateinit var viewModel: EmployeeViewModel
+    private lateinit var adapter: EmployeeAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,8 +28,15 @@ class EmployeeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.response.observe(this.viewLifecycleOwner, Observer {
-            placeHolder.text = it.get(0).name
+        adapter = EmployeeAdapter()
+
+        val recyclerView  =  view.findViewById<RecyclerView>(R.id.employeeRV)
+        recyclerView.adapter = adapter
+
+        viewModel.response.observe(this.viewLifecycleOwner, Observer {users ->
+
+            adapter.data = users
+
         })
     }
 }
