@@ -2,9 +2,9 @@ package com.e.myapplication.dataclasses
 
 data class Address(
     val street:String,
-    val suit: String,
+    val suite: String,
     val city: String,
-    val zipCode: String,
+    val zipcode: String,
     val geo: Geo
 ) {
 }

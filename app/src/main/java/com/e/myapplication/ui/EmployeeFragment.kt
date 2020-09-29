@@ -25,7 +25,7 @@ class EmployeeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.response.observe(this.viewLifecycleOwner, Observer {
-            placeHolder.text = it
+            placeHolder.text = it.get(0).name
         })
     }
 }
