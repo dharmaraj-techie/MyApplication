@@ -30,11 +30,8 @@ class EmployeeViewModel : ViewModel() {
                 val s = response.body()
                 _response.value = parse(JsonReader(StringReader(s)))
             }
-
             override fun onFailure(call: Call<String>, t: Throwable) {
-
             }
-
         })
     }
 }
