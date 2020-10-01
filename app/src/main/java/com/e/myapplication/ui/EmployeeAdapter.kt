@@ -2,16 +2,17 @@ package com.e.myapplication.ui
 
 import com.e.myapplication.R
 import com.e.myapplication.dataclasses.User
-
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.e.myapplication.CellClickListener
+import com.e.myapplication.databinding.EmployeeListItemBinding
 
 
-class EmployeeAdapter : RecyclerView.Adapter<ViewHolder>() {
+class EmployeeAdapter() :
+    RecyclerView.Adapter<EmployeeAdapter.ViewHolder>() {
     var data = listOf<User>()
         set(value) {
             field = value
@@ -24,21 +25,24 @@ class EmployeeAdapter : RecyclerView.Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.employee_list_item, parent, false)
-        return ViewHolder(view)
+        val binding = EmployeeListItemBinding.inflate(layoutInflater,parent,false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(data = data[position])
     }
+
+     class ViewHolder(private val binding: EmployeeListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(data: User) {
+            binding.nameTV.text = data.name
+            binding.emailIdTV.text = data.email
+        }
+    }
 }
 
-class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    private val name: TextView = itemView.findViewById(R.id.nameTV)
-    private val email: TextView = itemView.findViewById(R.id.emailIdTV)
 
-    fun bind(data: User) {
-        name.text = data.name
-        email.text = data.email
-    }
+class EmployeeClickListener(val clickListener: (id: Long) -> Unit) {
+    fun onClick(user: User) = clickListener(user.id)
 }
