@@ -9,7 +9,7 @@
             type="com.e.myapplication.dataclasses.User" />
         <variable
             name="clickListener"
-            type="com.e.myapplication.ui.EmployeeClickListener" />
+            type="com.e.myapplication.ui.employees.EmployeeClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

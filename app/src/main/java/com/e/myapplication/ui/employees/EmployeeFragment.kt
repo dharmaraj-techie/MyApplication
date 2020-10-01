@@ -1,4 +1,4 @@
-package com.e.myapplication.ui
+package com.e.myapplication.ui.employees
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -8,12 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.e.myapplication.CellClickListener
 import com.e.myapplication.R
-import kotlinx.android.synthetic.main.employee_fragment.*
-import kotlinx.android.synthetic.main.employee_list_item.*
-import java.lang.StringBuilder
 
 class EmployeeFragment : Fragment() {
 
@@ -32,16 +29,14 @@ class EmployeeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter = EmployeeAdapter(EmployeeClickListener { id ->
-            Toast.makeText(context,"$id",Toast.LENGTH_LONG).show()
+            view.findNavController().navigate(R.id.action_employeeFragment_to_detailEmployeeFragment)
         })
 
         val recyclerView  =  view.findViewById<RecyclerView>(R.id.employeeRV)
         recyclerView.adapter = adapter
 
         viewModel.response.observe(this.viewLifecycleOwner, Observer {users ->
-
             adapter.data = users
-
         })
     }
 

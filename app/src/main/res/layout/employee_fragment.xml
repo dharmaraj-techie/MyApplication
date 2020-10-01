@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/employeeRV"
-    tools:context=".ui.EmployeeFragment"
+    tools:context=".ui.employees.EmployeeFragment"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
 </androidx.recyclerview.widget.RecyclerView>

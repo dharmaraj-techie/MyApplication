@@ -1,4 +1,4 @@
-package com.e.myapplication.ui
+package com.e.myapplication.ui.employees
 
 import com.e.myapplication.dataclasses.User
 import android.view.LayoutInflater
