@@ -22,7 +22,7 @@ public fun parse(reader: JsonReader): List<User> {
                 "id" -> id = reader.nextLong()
                 "name" -> name = reader.nextString()
                 "username" -> username = reader.nextString()
-                "email" -> email = reader.nextString()
+                "email" -> email = reader.nextString().toLowerCase()
                 else -> reader.skipValue()
             }
         }
