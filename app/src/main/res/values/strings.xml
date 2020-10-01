@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="id_text">Employee Id is : %s</string>
+    <string name="name">Name : %s</string>
+    <string name="email">Email : %s</string>
+    <string name="phone">Phone Number : %s</string>
+    <string name="company_name">Company name : %s</string>
+    <string name="company_website">Company Website : %s</string>
+    <string name="address">%1$s, %2$s,\n%3$s-%4$s </string>
 </resources>

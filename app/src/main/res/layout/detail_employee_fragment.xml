@@ -1,14 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.employeedetails.DetailEmployeeFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+        <variable
+            name="viewModel"
+            type="com.e.myapplication.ui.employeedetails.DetailEmployeeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/test"
-        android:text="Hello" />
+        tools:context=".ui.employeedetails.DetailEmployeeFragment">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/idTV"
+            android:layout_width="0dp"
+            android:text="@{String.format(@string/id_text(viewModel.user.id))}"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="employee Id" />
+
+        <TextView
+            android:id="@+id/nameTV"
+            android:text="@{String.format(@string/name(viewModel.user.name))}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/idTV"
+            app:layout_constraintStart_toStartOf="@+id/idTV"
+            app:layout_constraintTop_toBottomOf="@+id/idTV"
+            tools:text="Name: Kfhd" />
+
+        <TextView
+            android:id="@+id/emailTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:autoLink="email"
+            android:text="@{String.format(@string/email(viewModel.user.email))}"
+            app:layout_constraintEnd_toEndOf="@+id/nameTV"
+            app:layout_constraintStart_toStartOf="@+id/nameTV"
+            app:layout_constraintTop_toBottomOf="@+id/nameTV"
+            tools:text="emailId dskfjbdjsfn" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Address:"
+            app:layout_constraintStart_toStartOf="@+id/emailTV"
+            app:layout_constraintTop_toBottomOf="@+id/emailTV" />
+
+        <TextView
+            android:id="@+id/AdressTV"
+            android:text="@{String.format(@string/address(viewModel.user.address.suite,viewModel.user.address.street,viewModel.user.address.city,viewModel.user.address.zipcode))}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            tools:text="no 23, 3rd cross street new" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Company Details:"
+            app:layout_constraintStart_toStartOf="@+id/phoneTV"
+            app:layout_constraintTop_toBottomOf="@+id/phoneTV" />
+
+        <TextView
+            android:id="@+id/companyTV"
+            android:text="@{String.format(@string/company_name(viewModel.user.company.name))}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            tools:text="sd,vbdjs djsvbjlds djsfb" />
+
+        <TextView
+            android:id="@+id/phoneTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:autoLink="phone"
+            android:text="@{String.format(@string/phone(viewModel.user.phone))}"
+            app:layout_constraintStart_toStartOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/AdressTV"
+            tools:text="Phone Number" />
+
+        <TextView
+            android:id="@+id/companyEmailTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:autoLink="web"
+            android:text="@{String.format(@string/company_website(viewModel.user.website))}"
+            app:layout_constraintStart_toStartOf="@+id/companyTV"
+            app:layout_constraintTop_toBottomOf="@+id/companyTV"
+            tools:text="sdkfjbdsjfb@" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
