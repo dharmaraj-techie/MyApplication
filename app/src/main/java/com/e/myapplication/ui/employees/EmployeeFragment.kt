@@ -29,7 +29,7 @@ class EmployeeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter = EmployeeAdapter(EmployeeClickListener { id ->
-            view.findNavController().navigate(R.id.action_employeeFragment_to_detailEmployeeFragment)
+            view.findNavController().navigate(EmployeeFragmentDirections.actionEmployeeFragmentToDetailEmployeeFragment(id))
         })
 
         val recyclerView  =  view.findViewById<RecyclerView>(R.id.employeeRV)
