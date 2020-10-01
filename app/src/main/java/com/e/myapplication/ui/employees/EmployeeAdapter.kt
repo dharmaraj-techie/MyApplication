@@ -40,6 +40,6 @@ class EmployeeAdapter(val clickListener: EmployeeClickListener) :
 }
 
 
-class EmployeeClickListener(val clickListener: (id: Long) -> Unit) {
-    fun onClick(user: User) = clickListener(user.id)
+class EmployeeClickListener(val clickListener: (user: User) -> Unit) {
+    fun onClick(user: User) = clickListener(user)
 }

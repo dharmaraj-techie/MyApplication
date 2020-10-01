@@ -24,10 +24,8 @@ class DetailEmployeeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val args = DetailEmployeeFragmentArgs.fromBundle(requireArguments())
-        test.text=  args.id.toString()
+        test.text=  args.user.name
         viewModel = ViewModelProviders.of(this).get(DetailEmployeeViewModel::class.java)
     }
-
-
 
 }

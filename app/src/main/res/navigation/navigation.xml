@@ -20,7 +20,7 @@
         android:label="detail_employee_fragment"
         tools:layout="@layout/detail_employee_fragment" >
         <argument
-            android:name="id"
-            app:argType="long" />
+            android:name="user"
+            app:argType="com.e.myapplication.dataclasses.User" />
     </fragment>
 </navigation>

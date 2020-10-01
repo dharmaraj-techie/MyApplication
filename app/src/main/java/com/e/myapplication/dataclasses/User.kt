@@ -1,7 +1,9 @@
 package com.e.myapplication.dataclasses
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import java.net.Inet4Address
-
+@Parcelize
 data class User(
     val id: Long,
     val name: String,
@@ -11,5 +13,5 @@ data class User(
 //    val phone: String,
 //    val website: String,
 //    val company: Company
-    ) {
+    ): Parcelable {
 }
